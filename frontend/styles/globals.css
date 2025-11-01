@@ -1,25 +1,224 @@
+/* Importar fuentes de Google */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-gray-900 text-white;
+html { 
+  color-scheme: dark; 
+}
+
+body { 
+  @apply text-ink font-body min-h-screen; 
+}
+
+/* Fondo para MOBILE (pantallas pequeñas) */
+@media (max-width: 768px) {
+  body {
+    background: 
+      linear-gradient(rgba(18, 14, 12, 0.85), rgba(18, 14, 12, 0.90)), 
+      url('/fondo-mobile.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+}
+
+/* Fondo para DESKTOP (pantallas grandes) */
+@media (min-width: 769px) {
+  body {
+    background: 
+      linear-gradient(rgba(18, 14, 12, 0.85), rgba(18, 14, 12, 0.90)), 
+      url('/fondo-desktop.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+}
+
+/* Tipografías y encabezados */
+h1, h2, h3, h4 { 
+  @apply font-display uppercase tracking-wide2 text-red1; 
+}
+
+h1 { 
+  @apply text-4xl md:text-6xl; 
+}
+
+h2 { 
+  @apply text-3xl md:text-4xl; 
+}
+
+h3 { 
+  @apply text-2xl; 
+}
+
+p { 
+  @apply text-ink; 
+}
+
+/* Links */
+a { 
+  @apply text-red1 no-underline transition-all duration-200; 
+}
+
+a:hover { 
+  color: hsl(18 60% 44%); 
+  text-shadow: 0 0 .35em hsl(18 80% 40% / .25); 
 }
 
 @layer components {
+  /* Botón principal - estilo cinematográfico */
   .btn-primary {
-    @apply bg-primary hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply uppercase font-bold tracking-widest rounded-mdx shadow-hard px-4 py-3 transition-all duration-200;
+    color: #0a0909; 
+    background: linear-gradient(180deg, hsl(12 62% 44%), hsl(12 52% 34%));
+    border: 1px solid hsl(12 62% 30% / .7);
   }
   
+  .btn-primary:hover {
+    filter: brightness(1.05) saturate(1.05);
+  }
+  
+  .btn-primary:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 hsl(12 72% 24%), var(--shadow-hard);
+  }
+  
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  /* Botón secundario */
   .btn-secondary {
-    @apply bg-secondary hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200;
+    @apply uppercase font-bold tracking-widest rounded-mdx shadow-hard px-4 py-3 transition-all duration-200;
+    color: #0a0909;
+    background: linear-gradient(180deg, hsl(18 60% 44%), hsl(18 50% 34%));
+    border: 1px solid hsl(18 60% 30% / .7);
   }
   
+  .btn-secondary:hover {
+    filter: brightness(1.05) saturate(1.05);
+  }
+  
+  /* Botón ghost */
+  .btn-ghost {
+    @apply text-ink border border-[hsl(12_22%_30%)] bg-transparent rounded-mdx px-4 py-3 uppercase font-bold tracking-widest transition-all duration-200;
+  }
+  
+  .btn-ghost:hover {
+    @apply text-red1 border-red1;
+  }
+  
+  /* Tarjeta/Card */
   .card {
-    @apply bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-700;
+    @apply rounded-lgx shadow-soft border border-[hsl(12_32%_18%_/_0.45)] p-6;
+    background: linear-gradient(180deg, hsl(12 28% 8% / .92), hsl(12 30% 7% / .92));
   }
   
+  /* Input */
   .input {
-    @apply w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary;
+    @apply w-full rounded-smx border px-3.5 py-3 text-ink transition-all duration-200;
+    background: hsl(12 24% 9%);
+    border-color: hsl(12 24% 22%);
   }
+  
+  .input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px hsl(18 60% 44% / .25);
+    border-color: hsl(18 60% 44%);
+  }
+  
+  .input::placeholder {
+    @apply text-inkMuted;
+  }
+  
+  /* Badge */
+  .badge {
+    @apply inline-block rounded-full border px-3 py-1 text-xs font-display uppercase tracking-widest text-inkDim;
+    border-color: hsl(12 30% 28%);
+    background: hsl(12 26% 12% / .8);
+  }
+  
+  /* Container */
+  .container {
+    @apply w-[92%] max-w-[1100px] mx-auto;
+  }
+}
+
+/* Utilidades adicionales */
+.vignette {
+  position: relative;
+  isolation: isolate;
+}
+
+.vignette::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 220px 120px hsl(0 0% 0% / .55);
+  z-index: -1;
+}
+
+/* Animaciones personalizadas */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, hsl(18 60% 44% / .1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Imagen decorativa inferior derecha */
+body::after {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 400px;
+  height: 400px;
+  background-image: url('/decoracion.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6; /* Ajusta la opacidad según prefieras */
+}
+
+/* Responsive - Tablet */
+@media (max-width: 1024px) {
+  body::after {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+  body::after {
+    width: 200px;
+    height: 200px;
+    opacity: 0.4; /* Más sutil en móvil */
+  }
+}
+
+/* Mobile pequeño */
+@media (max-width: 480px) {
+  body::after {
+    width: 150px;
+    height: 150px;
+    opacity: 0.3;
+  }
+}
+
+/* Asegurar que el contenido esté por encima */
+.card, .container, button, input {
+  position: relative;
+  z-index: 1;
 }

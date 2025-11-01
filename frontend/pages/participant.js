@@ -144,7 +144,7 @@ export default function Participant() {
   return (
     <>
       <Head>
-        <title>Panel de Participante - Karaoke Contest</title>
+        <title>Panel de Participante - Karaoke Night</title>
       </Head>
 
       <div className="min-h-screen p-4">
@@ -175,7 +175,6 @@ export default function Participant() {
 
           {contest.status === 'registration' && (
             <div className="card text-center">
-              <div className="text-6xl mb-4">⏳</div>
               <h2 className="text-2xl font-bold mb-2">Esperando inicio...</h2>
               <p className="text-gray-400">
                 El administrador iniciará el concurso pronto
@@ -185,7 +184,6 @@ export default function Participant() {
 
           {contest.status === 'in_progress' && !currentMatch && (
             <div className="card text-center">
-              <div className="text-6xl mb-4">🎵</div>
               <h2 className="text-2xl font-bold mb-2">Preparando siguiente match...</h2>
               <p className="text-gray-400">El administrador está configurando la siguiente ronda</p>
             </div>
@@ -200,7 +198,7 @@ export default function Participant() {
                 
                 {isInCurrentMatch && (
                   <div className="bg-yellow-500/20 border border-yellow-500 text-yellow-200 px-4 py-3 rounded-lg mb-4">
-                    <p className="font-bold">¡Es tu turno! 🎤</p>
+                    <p className="font-bold">¡Es tu turno!</p>
                     <p className="text-sm">Ingresa la canción que vas a cantar</p>
                   </div>
                 )}
@@ -256,7 +254,7 @@ export default function Participant() {
 
                 {isInCurrentMatch && currentMatch.status === 'voting' && (
                   <div className="text-center py-8 bg-purple-500/20 rounded-lg">
-                    <p className="text-xl font-bold mb-2">🎤 ¡Es tu turno!</p>
+                    <p className="text-xl font-bold mb-2">¡Es tu turno!</p>
                     <p className="text-gray-300">No puedes votar en tu propio match</p>
                   </div>
                 )}

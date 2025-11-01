@@ -60,7 +60,7 @@ export default function Register() {
   return (
     <>
       <Head>
-        <title>Registro - Karaoke Contest</title>
+        <title>Registro - Karaoke Night</title>
       </Head>
 
       <div className="min-h-screen flex items-center justify-center px-4">
@@ -73,7 +73,7 @@ export default function Register() {
           </button>
 
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold mb-2">🎤 Registro</h1>
+            <h1 className="text-4xl font-bold mb-2">Registro</h1>
             <p className="text-gray-400">
               {contest ? `Concurso: ${contest.name}` : 'Cargando...'}
             </p>
@@ -113,7 +113,7 @@ export default function Register() {
                 disabled={loading || !contest || contest.status !== 'registration'}
                 className="w-full btn-primary"
               >
-                {loading ? 'Registrando...' : 'Registrarme 🎵'}
+                {loading ? 'Registrando...' : 'Registrarme'}
               </button>
             </form>
           </div>

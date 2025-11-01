@@ -241,7 +241,7 @@ export default function Admin() {
     return (
       <>
         <Head>
-          <title>Admin Login - Karaoke Contest</title>
+          <title>Admin Login - Karaoke Night</title>
         </Head>
         <div className="min-h-screen flex items-center justify-center px-4">
           <div className="max-w-md w-full">
@@ -253,7 +253,7 @@ export default function Admin() {
             </button>
             
             <div className="text-center mb-8">
-              <h1 className="text-4xl font-bold mb-2">🔐 Admin</h1>
+              <h1 className="text-4xl font-bold mb-2">Admin</h1>
               <p className="text-gray-400">Acceso solo para administradores</p>
             </div>
 
@@ -289,7 +289,7 @@ export default function Admin() {
   return (
     <>
       <Head>
-        <title>Panel Admin - Karaoke Contest</title>
+        <title>Panel Admin - Karaoke Night</title>
       </Head>
 
       <div className="min-h-screen p-4">
